@@ -1,0 +1,24 @@
+{
+  "name": "Sem2-3_A3_restaurantList",
+  "version": "1.0.0",
+  "description": "1. Load node.js 2. Load express.js 3. Load nodemon",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/eji6u94g/AC_RestaurantList_sem2-3_a3.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/eji6u94g/AC_RestaurantList_sem2-3_a3/issues"
+  },
+  "homepage": "https://github.com/eji6u94g/AC_RestaurantList_sem2-3_a3#readme",
+  "dependencies": {
+    "express": "^4.17.1",
+    "express-handlebars": "^5.3.2"
+  }
+}
