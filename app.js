@@ -18,6 +18,12 @@ app.get('/restaurants/:restaurant_id', (req, res) => {
   res.render('show', { restaurants })
 })
 
+app.get('/search', (req, res) => {
+  const keyword = req.query.keyword
+  const restaurants = restaurantList.results.filter(item => item.name.trim().toLowerCase().includes(keyword.trim().toLowerCase()) || item.category.trim().toLowerCase().includes(keyword.trim().toLowerCase()))
+  res.render('index', { restaurants, keyword })
+})
+
 app.listen(port, () => {
   console.log('online')
 })
