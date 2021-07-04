@@ -1,7 +1,6 @@
 const express = require('express')
 const exphbs = require('express-handlebars')
 const restaurantList = require('./restaurant.json')
-const fontawesome = require('@fortawesome/fontawesome-free')
 const app = express()
 const port = 3000
 
