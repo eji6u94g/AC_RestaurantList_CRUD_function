@@ -4,13 +4,13 @@
 ## 專案畫面
 
 1. 首頁
-![image](https://github.com/eji6u94g/AC_RestaurantList_sem2-3_a3/blob/master/public/img/Index-page.PNG)
+![image](https://github.com/eji6u94g/AC_RestaurantList_sem2-3_a3/public/img/Index-page.PNG)
 
 2. 餐廳資訊頁
-![image](https://github.com/eji6u94g/AC_RestaurantList_sem2-3_a3/blob/master/public/img/show-page.PNG)
+![image](https://github.com/eji6u94g/AC_RestaurantList_sem2-3_a3/public/img/show-page.PNG)
 
 3. 搜尋結果頁面
-![image](https://github.com/eji6u94g/AC_RestaurantList_sem2-3_a3/blob/master/public/img/search-page.PNG)
+![image](https://github.com/eji6u94g/AC_RestaurantList_sem2-3_a3/public/img/search-page.PNG)
 
 ## Features - 產品功能
 
