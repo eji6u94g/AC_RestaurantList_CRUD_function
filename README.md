@@ -3,7 +3,14 @@
 
 ## 專案畫面
 
-![image](https://github.com/pierceshih15/restaurantList/blob/master/public/img/homePage.png)
+1. 首頁
+![image](https://github.com/eji6u94g/AC_RestaurantList_sem2-3_a3public/img/Index-page.PNG)
+
+2. 餐廳資訊頁
+![image](https://github.com/eji6u94g/AC_RestaurantList_sem2-3_a3public/img/show-page.PNG)
+
+3. 搜尋結果頁面
+![image](https://github.com/eji6u94g/AC_RestaurantList_sem2-3_a3public/img/search-page.PNG)
 
 ## Features - 產品功能
 
@@ -36,13 +43,13 @@ cd AC_RestaurantList_sem2-3_a3
 npm install
 ```
 
-6. 啟動伺服器，執行 app.js 檔案
+4. 啟動伺服器，執行 app.js 檔案
 
 ```
 nodemon app.js
 ```
 
-7. 當 terminal 出現以下字樣，表示伺服器與資料庫已啟動並成功連結
+5. 當 terminal 出現以下字樣，表示伺服器與資料庫已啟動並成功連結
 
 ```
 online
