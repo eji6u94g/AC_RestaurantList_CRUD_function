@@ -2,6 +2,7 @@ const express = require('express')
 const exphbs = require('express-handlebars')
 const restaurantList = require('./restaurant.json')
 const mongoose = require('mongoose')
+const restaurantData = require('./models/restaurant.js')
 const app = express()
 const port = 3000
 const dbConnection = mongoose.connection
