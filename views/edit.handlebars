@@ -1,14 +1,16 @@
-<form action="/restaurants/{{restaurant._id}}/edit" method='POST'>
-  <ul>
+<form action="/restaurants/{{restaurant._id}}/edit" method='POST' class='edit-container mt-5'>
+  <div class="form-group">
     {{#each restaurant}}
     {{#if this.length}}
-    <li>
+    <li class="list-group-item">
       <label for="{{@key}}">{{@key}}</label>
-      <input type="text" value='{{this}}' name='{{@key}}'>
+      <input type="text" value='{{this}}' name='{{@key}}' class="form-control" id='{{@key}}'>
     </li>
     {{/if}}
     {{/each}}
-  </ul>
-  <button type="submit">Save</button>
+  </div>
+  <div class='d-flex flex-row justify-content-around align-items-center mb-2'>
+    <a href="/" class="text-secondary">Back to list</a>
+    <button type="submit" class='btn btn-secondary'>Save</button>
+  </div>
 </form>
-<a href="/">Back to list</a>

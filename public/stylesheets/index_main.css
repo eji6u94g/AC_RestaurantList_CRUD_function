@@ -82,6 +82,15 @@ header {
   font-size: 1.5rem;
 }
 
+.add-button-container {
+  text-align:center;
+}
+
+.edit-container {
+ max-width: 50%;
+ margin: 0 auto;
+}
+
 @media screen and (max-width: 992px) {
   .card img {
     height: 115px;

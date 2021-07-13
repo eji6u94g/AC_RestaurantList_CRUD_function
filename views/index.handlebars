@@ -17,8 +17,8 @@
 </div>
 
 <!-- Add item button -->
-<form action="/restaurants/new" method='GET'>
-  <button type='submit'>Add your favorite restaurant</button>
+<form action="/restaurants/new" method='GET' class='add-button-container mt-5'>
+  <button type='submit' class='btn btn-secondary'>Add your favorite restaurant</button>
 </form>
 
 <!-- restaurant list -->
@@ -36,14 +36,16 @@
             </div>
             <span class="badge badge-pill badge-danger font-weight-normal">
               {{this.rating}}
-              <i class="fas fa-star fa-xs icon"></i>
+              <i class="fas fa-star fa-sm"></i>
             </span>
           </div>
-          <a href="/restaurants/{{this._id}}/edit">Edit</a>
-          <a href="/restaurants/{{this._id}}" class="text-secondary">Detail</a>
-          <form action="/restaurants/{{this._id}}/delete" method='POST' style="display:inline">
-            <button type='submit'>Delete</button>
-          </form>
+          <div class='d-flex flex-row justify-content-around align-items-center mb-2'>
+            <a href="/restaurants/{{this._id}}/edit" class="text-secondary">Edit</a>
+            <a href="/restaurants/{{this._id}}" class="text-secondary">Detail</a>
+            <form action="/restaurants/{{this._id}}/delete" method='POST' style="display:inline">
+              <button type='submit' class='btn btn-secondary'>Delete</button>
+            </form>
+          </div>
         </div>
         {{/each}}
       </div>
