@@ -1,6 +1,6 @@
 const express = require('express')
 const exphbs = require('express-handlebars')
-// const restaurantList = require('./restaurant.json')
+const bodyParser = require('body-parser')
 const mongoose = require('mongoose')
 const restaurantData = require('./models/restaurant.js')
 const app = express()
@@ -20,6 +20,9 @@ dbConnection.once('open', () => {
   console.log('Mongodb is connected!')
 })
 
+//set body-parser
+app.use(express.urlencoded({ extended: true }))
+
 //Index page
 app.get('/', (req, res) => {
   restaurantData.find()
@@ -33,7 +36,7 @@ app.get('/restaurants/:restaurant_id', (req, res) => {
   const id = req.params.restaurant_id
   restaurantData.findById(id)
     .lean()
-    .then(restaurants => res.render('show', { restaurants }))
+    .then(restaurant => res.render('show', { restaurant }))
     .catch(error => console.log(error))
 })
 
@@ -50,6 +53,43 @@ app.get('/search', (req, res) => {
       restaurants = restaurants.filter(restaurant => restaurantsMatchKeyword(restaurant, keyword))
       res.render('index', { restaurants, keyword: req.query.keyword })
     })
+})
+
+//edit item
+app.get('/restaurants/:restaurant_id/edit', (req, res) => {
+  const id = req.params.restaurant_id
+  restaurantData.findById(id)
+    .lean()
+    .then(restaurant => res.render('edit', { restaurant }))
+    .catch(error => console.log(error))
+})
+
+app.post('/restaurants/:restaurant_id/edit', (req, res) => {
+  const id = req.params.restaurant_id
+  const name = req.body.name
+  const name_en = req.body.name_en
+  const category = req.body.category
+  const image = req.body.image
+  const location = req.body.location
+  const phone = req.body.phone
+  const google_map = req.body.google_map
+  const rating = req.body.rating
+  const description = req.body.description
+  restaurantData.findById(id)
+    .then(restaurant => {
+      restaurant.name = name
+      restaurant.name_en = name_en
+      restaurant.category = category
+      restaurant.image = image
+      restaurant.location = location
+      restaurant.phone = phone
+      restaurant.google_map = google_map
+      restaurant.rating = rating
+      restaurant.description = description
+      return restaurant.save()
+    })
+    .then(restaurant => res.redirect('/'))
+    .catch(error => console.log(error))
 })
 
 app.listen(port, () => {
