@@ -1,0 +1,14 @@
+<form action="/restaurants" method='POST'>
+  <ul>
+    {{#each restaurant}}
+    {{#if this.length}}
+    <li>
+      <label for="{{@key}}">{{@key}}</label>
+      <input type="text" name='{{@key}}'>
+    </li>
+    {{/if}}
+    {{/each}}
+  </ul>
+  <button type="submit">Save</button>
+</form>
+<a href="/">Back to list</a>
