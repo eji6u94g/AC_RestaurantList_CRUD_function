@@ -1,39 +1,41 @@
 const mongoose = require('mongoose')
 const Schema = mongoose.Schema
 const restaurantSchema = new Schema({
-  "name": {
+  "Name": {
     type: String,
     required: true
   },
-  "name_en": {
+  "English_Name": {
     type: String,
     required: true
   },
-  "category": {
+  "Category": {
     type: String,
     required: true
   },
-  "image": {
+  "Image_Link": {
     type: String,
     required: false
   },
-  "location": {
+  "Address": {
     type: String,
     required: true
   },
-  "phone": {
+  "Phone": {
     type: String,
     required: true
   },
-  "google_map": {
+  "Google_Map": {
     type: String,
-    required: true
+    required: false
   },
-  "rating": {
-    type: String,
-    required: true
+  "Rating": {
+    type: Number,
+    required: true,
+    min: 0,
+    max: 5
   },
-  "description": {
+  "Description": {
     type: String,
     required: true
   }

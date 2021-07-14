@@ -7,7 +7,15 @@ const app = express()
 const port = 3000
 const dbConnection = mongoose.connection
 
-app.engine('handlebars', exphbs({ defaultLayout: 'main' }))
+app.engine('handlebars', exphbs({
+  defaultLayout: 'main',
+  helpers: {
+    formRenderHelper: function (object) {
+      delete object._id
+      delete object.__v
+    }
+  }
+}))
 app.set('view engine', 'handlebars')
 app.use(express.static('public'))
 
@@ -40,25 +48,25 @@ app.get('/restaurants/new', (req, res) => {
 })
 
 app.post('/restaurants', (req, res) => {
-  const name = req.body.name
-  const name_en = req.body.name_en
-  const category = req.body.category
-  const image = req.body.image
-  const location = req.body.location
-  const phone = req.body.phone
-  const google_map = req.body.google_map
-  const rating = req.body.rating
-  const description = req.body.description
+  const Name = req.body.Name
+  const English_Name = req.body.English_Name
+  const Category = req.body.Category
+  const Image_Link = req.body.Image_Link
+  const Address = req.body.Address
+  const Phone = req.body.Phone
+  const Google_Map = req.body.Google_Map
+  const Rating = req.body.Rating
+  const Description = req.body.Description
   restaurantData.create({
-    name,
-    name_en,
-    category,
-    image,
-    location,
-    phone,
-    google_map,
-    rating,
-    description
+    Name,
+    English_Name,
+    Category,
+    Image_Link,
+    Location,
+    Phone,
+    Google_Map,
+    Rating,
+    Description
   })
     .then(() => res.redirect('/'))
     .catch(error => console.log(error))
@@ -98,30 +106,30 @@ app.get('/restaurants/:restaurant_id/edit', (req, res) => {
 })
 
 app.post('/restaurants/:restaurant_id/edit', (req, res) => {
+  const Name = req.body.Name
+  const English_Name = req.body.English_Name
+  const Category = req.body.Category
+  const Image_Link = req.body.Image_Link
+  const Address = req.body.Address
+  const Phone = req.body.Phone
+  const Google_Map = req.body.Google_Map
+  const Rating = req.body.Rating
+  const Description = req.body.Description
   const id = req.params.restaurant_id
-  const name = req.body.name
-  const name_en = req.body.name_en
-  const category = req.body.category
-  const image = req.body.image
-  const location = req.body.location
-  const phone = req.body.phone
-  const google_map = req.body.google_map
-  const rating = req.body.rating
-  const description = req.body.description
   restaurantData.findById(id)
     .then(restaurant => {
-      restaurant.name = name
-      restaurant.name_en = name_en
-      restaurant.category = category
-      restaurant.image = image
-      restaurant.location = location
-      restaurant.phone = phone
-      restaurant.google_map = google_map
-      restaurant.rating = rating
-      restaurant.description = description
+      restaurant.Name = Name
+      restaurant.English_Name = English_Name
+      restaurant.Category = Category
+      restaurant.Image_Link = Image_Link
+      restaurant.Address = Address
+      restaurant.Phone = Phone
+      restaurant.Google_Map = Google_Map
+      restaurant.Rating = Rating
+      restaurant.Description = Description
       return restaurant.save()
     })
-    .then(restaurant => res.redirect('/'))
+    .then(() => res.redirect('/'))
     .catch(error => console.log(error))
 })
 

@@ -11,15 +11,15 @@ dbConnection.once('open', () => {
   console.log('Mongodb is connected!')
   restaurantList.results.forEach(item => {
     restaurantData.create({
-      name: item.name,
-      name_en: item.name_en,
-      category: item.category,
-      image: item.image,
-      location: item.location,
-      phone: item.phone,
-      google_map: item.google_map,
-      rating: item.rating,
-      description: item.description
+      Name: item.name,
+      English_Name: item.name_en,
+      Category: item.category,
+      Image_Link: item.image,
+      Address: item.location,
+      Phone: item.phone,
+      Google_Map: item.google_map,
+      Rating: item.rating,
+      Description: item.description
     })
   })
 

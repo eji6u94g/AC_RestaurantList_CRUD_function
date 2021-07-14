@@ -1,12 +1,11 @@
 <form action="/restaurants/{{restaurant._id}}/edit" method='POST' class='edit-container mt-5'>
   <div class="form-group">
+    {{formRenderHelper restaurant}}
     {{#each restaurant}}
-    {{#if this.length}}
     <li class="list-group-item">
       <label for="{{@key}}">{{@key}}</label>
       <input type="text" value='{{this}}' name='{{@key}}' class="form-control" id='{{@key}}'>
     </li>
-    {{/if}}
     {{/each}}
   </div>
   <div class='d-flex flex-row justify-content-around align-items-center mb-2'>

@@ -28,14 +28,14 @@
       <div class="card-columns">
         {{#each restaurants}}
         <div class="card mb-3">
-          <img class="card-img-top" src="{{this.image}}" alt="{{this.name}}">
+          <img class="card-img-top" src="{{this.Image_Link}}" alt="{{this.Name}}">
           <div class="card-body p-3">
-            <h6 class="card-title mb-1">{{this.name}}</h6>
+            <h6 class="card-title mb-1">{{this.Name}}</h6>
             <div class="restaurant-category mb-1">
-              <i class="fas fa-utensils pr-2 icon"></i>{{this.category}}
+              <i class="fas fa-utensils pr-2 icon"></i>{{this.Category}}
             </div>
             <span class="badge badge-pill badge-danger font-weight-normal">
-              {{this.rating}}
+              {{this.Rating}}
               <i class="fas fa-star fa-sm"></i>
             </span>
           </div>
