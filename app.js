@@ -62,7 +62,7 @@ app.post('/restaurants', (req, res) => {
     English_Name,
     Category,
     Image_Link,
-    Location,
+    Address,
     Phone,
     Google_Map,
     Rating,
