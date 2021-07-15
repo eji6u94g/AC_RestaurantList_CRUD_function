@@ -2,6 +2,7 @@ const express = require('express')
 const exphbs = require('express-handlebars')
 const bodyParser = require('body-parser')
 const mongoose = require('mongoose')
+const methodOverride = require('method-override')
 const restaurantData = require('./models/restaurant.js')
 const app = express()
 const port = 3000
@@ -30,6 +31,9 @@ dbConnection.once('open', () => {
 
 //set body-parser
 app.use(express.urlencoded({ extended: true }))
+
+//set method override
+app.use(methodOverride('_method'))
 
 //Index page
 app.get('/', (req, res) => {
@@ -81,11 +85,10 @@ app.get('/restaurants/:restaurant_id', (req, res) => {
     .catch(error => console.log(error))
 })
 
+//search
 function restaurantsMatchKeyword(restaurant, keyword) {
   return restaurant.name.trim().toLowerCase().includes(keyword) || restaurant.category.trim().toLowerCase().includes(keyword)
 }
-
-//search
 app.get('/search', (req, res) => {
   const keyword = req.query.keyword.trim().toLowerCase()
   restaurantData.find()
@@ -105,7 +108,7 @@ app.get('/restaurants/:restaurant_id/edit', (req, res) => {
     .catch(error => console.log(error))
 })
 
-app.post('/restaurants/:restaurant_id/edit', (req, res) => {
+app.put('/restaurants/:restaurant_id', (req, res) => {
   const Name = req.body.Name
   const English_Name = req.body.English_Name
   const Category = req.body.Category
@@ -134,7 +137,7 @@ app.post('/restaurants/:restaurant_id/edit', (req, res) => {
 })
 
 //delete item
-app.post('/restaurants/:restaurant_id/delete', (req, res) => {
+app.delete('/restaurants/:restaurant_id', (req, res) => {
   const id = req.params.restaurant_id
   restaurantData.findById(id)
     .then(restaurant => {

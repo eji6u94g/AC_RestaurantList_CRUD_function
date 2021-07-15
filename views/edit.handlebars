@@ -1,4 +1,4 @@
-<form action="/restaurants/{{restaurant._id}}/edit" method='POST' class='edit-container mt-5'>
+<form action="/restaurants/{{restaurant._id}}?_method=PUT" method='POST' class='edit-container mt-5'>
   <div class="form-group">
     {{formRenderHelper restaurant}}
     {{#each restaurant}}

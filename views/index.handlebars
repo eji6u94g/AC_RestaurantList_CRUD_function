@@ -16,11 +16,6 @@
   </div>
 </div>
 
-<!-- Add item button -->
-<form action="/restaurants/new" method='GET' class='add-button-container mt-5'>
-  <button type='submit' class='btn btn-secondary'>Add your favorite restaurant</button>
-</form>
-
 <!-- restaurant list -->
 <div class="container mt-5">
   <div class="row">
@@ -42,7 +37,7 @@
           <div class='d-flex flex-row justify-content-around align-items-center mb-2'>
             <a href="/restaurants/{{this._id}}/edit" class="text-secondary">Edit</a>
             <a href="/restaurants/{{this._id}}" class="text-secondary">Detail</a>
-            <form action="/restaurants/{{this._id}}/delete" method='POST' style="display:inline">
+            <form action="/restaurants/{{this._id}}?_method=DELETE" method='POST' style="display:inline">
               <button type='submit' class='btn btn-secondary'>Delete</button>
             </form>
           </div>
