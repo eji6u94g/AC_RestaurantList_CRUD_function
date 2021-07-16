@@ -47,18 +47,9 @@ router.post('/', (req, res) => {
     .catch(error => console.log(error))
 })
 
-//show detail page
-router.get('/:restaurant_id', (req, res) => {
-  const id = req.params.restaurant_id
-  restaurantData.findById(id)
-    .lean()
-    .then(restaurant => res.render('show', { restaurant }))
-    .catch(error => console.log(error))
-})
-
 //search
 function restaurantsMatchKeyword(restaurant, keyword) {
-  return restaurant.name.trim().toLowerCase().includes(keyword) || restaurant.category.trim().toLowerCase().includes(keyword)
+  return restaurant.Name.trim().toLowerCase().includes(keyword) || restaurant.Category.trim().toLowerCase().includes(keyword)
 }
 router.get('/search', (req, res) => {
   const keyword = req.query.keyword.trim().toLowerCase()
@@ -68,6 +59,15 @@ router.get('/search', (req, res) => {
       restaurants = restaurants.filter(restaurant => restaurantsMatchKeyword(restaurant, keyword))
       res.render('index', { restaurants, keyword: req.query.keyword })
     })
+})
+
+//show detail page
+router.get('/:restaurant_id', (req, res) => {
+  const id = req.params.restaurant_id
+  restaurantData.findById(id)
+    .lean()
+    .then(restaurant => res.render('show', { restaurant }))
+    .catch(error => console.log(error))
 })
 
 //edit item
