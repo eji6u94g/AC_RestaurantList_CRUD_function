@@ -91,6 +91,10 @@ header {
  margin: 0 auto;
 }
 
+.sort {
+  text-align: right;
+}
+
 @media screen and (max-width: 992px) {
   .card img {
     height: 115px;

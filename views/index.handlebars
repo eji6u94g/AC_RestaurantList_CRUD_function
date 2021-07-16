@@ -16,8 +16,19 @@
   </div>
 </div>
 
+
+
 <!-- restaurant list -->
 <div class="container mt-5">
+  {{!-- sort --}}
+  <form action="/restaurants/select" method="GET" class='mb-2 sort'>
+    <label for="sort">Sort</label>
+    <select name="sort" id='sort'>
+      <option value="asc" {{#if aToZ}}selected{{/if}}>A->Z</option>
+      <option value="desc" {{#if zToA}}selected{{/if}}>Z->A</option>
+    </select>
+    <button type='submit' class='btn btn-secondary'>submit</button>
+  </form>
   <div class="row">
     <div class="col-md-10 col-12 mx-auto">
       <div class="card-columns">

@@ -2,6 +2,18 @@ const express = require('express')
 const router = express.Router()
 const restaurantData = require('../../models/restaurant.js')
 
+//que selection
+router.get('/select', (req, res) => {
+  const sort = req.query.sort
+  const aToZ = sort === 'asc'
+  const zToA = sort === 'desc'
+  restaurantData.find()
+    .lean()
+    .sort({ Name: sort })
+    .then(restaurants => res.render('index', { restaurants, aToZ, zToA }))
+    .catch(error => console.log(error))
+})
+
 //Add item
 router.get('/new', (req, res) => {
   restaurantData.findOne()
